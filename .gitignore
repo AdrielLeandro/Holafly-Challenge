@@ -1,0 +1,31 @@
+# Xcode
+.DS_Store
+*/.DS_Store
+xcuserdata/
+*.xcuserdatad
+*.xcworkspace
+!*.xcworkspace
+xcuserdata/
+.idea/
+*.swp
+*~
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+.project.xcworkspace
+xcshareddata/
+DerivedData/
+.build/
+
+# Swift
+.DS_Store
+*.swp
+*~
+.idea/
+.DS_Store?
+DerivedData/
+.build/
+
+# SwiftUI
+/swiftgen
+/xcuserdata/
