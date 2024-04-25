@@ -17,6 +17,15 @@
 		D25A345C2BD9F66500148C70 /* PokemonPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345B2BD9F66500148C70 /* PokemonPageService.swift */; };
 		D25A345E2BD9F71000148C70 /* PokemonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345D2BD9F71000148C70 /* PokemonPage.swift */; };
 		D25A34602BD9F74500148C70 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345F2BD9F74500148C70 /* Pokemon.swift */; };
+		D25A34652BD9FE2600148C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34642BD9FE2600148C70 /* MainView.swift */; };
+		D25A34672BD9FE3E00148C70 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34662BD9FE3E00148C70 /* MainViewModel.swift */; };
+		D25A34692BDA043500148C70 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34682BDA043500148C70 /* MainCoordinator.swift */; };
+		D25A346C2BDA0BF700148C70 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A346B2BDA0BF700148C70 /* ListItem.swift */; };
+		D2732F042BDA1908002B1EC8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D2732F032BDA1908002B1EC8 /* SDWebImageSwiftUI */; };
+		D2732F072BDAB1DA002B1EC8 /* PokeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F062BDAB1DA002B1EC8 /* PokeItem.swift */; };
+		D2732F092BDAF970002B1EC8 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F082BDAF970002B1EC8 /* PokemonType.swift */; };
+		D2732F0C2BDAFA10002B1EC8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2732F0B2BDAFA10002B1EC8 /* Colors.xcassets */; };
+		D2732F0F2BDB0E50002B1EC8 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F0E2BDB0E50002B1EC8 /* Spacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +59,15 @@
 		D25A345B2BD9F66500148C70 /* PokemonPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonPageService.swift; sourceTree = "<group>"; };
 		D25A345D2BD9F71000148C70 /* PokemonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonPage.swift; sourceTree = "<group>"; };
 		D25A345F2BD9F74500148C70 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		D25A34642BD9FE2600148C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D25A34662BD9FE3E00148C70 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D25A34682BDA043500148C70 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		D25A346B2BDA0BF700148C70 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		D2732F052BDA2646002B1EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2732F062BDAB1DA002B1EC8 /* PokeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeItem.swift; sourceTree = "<group>"; };
+		D2732F082BDAF970002B1EC8 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
+		D2732F0B2BDAFA10002B1EC8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D2732F0E2BDB0E50002B1EC8 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2732F042BDA1908002B1EC8 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +103,7 @@
 				D25A342E2BD886CD00148C70 /* HolaFly-ChallengeTests */,
 				D25A34382BD886CD00148C70 /* HolaFly-ChallengeUITests */,
 				D25A341C2BD886C900148C70 /* Products */,
+				D2732F022BDA1908002B1EC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +120,9 @@
 		D25A341D2BD886C900148C70 /* HolaFly-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				D2732F052BDA2646002B1EC8 /* Info.plist */,
 				D25A344F2BD8882F00148C70 /* App */,
+				D2732F0D2BDB0E33002B1EC8 /* Helper */,
 				D25A344E2BD887F800148C70 /* Resources */,
 				D25A344A2BD8878800148C70 /* Networking */,
 				D25A34492BD8877C00148C70 /* Models */,
@@ -129,6 +151,7 @@
 		D25A34482BD886E700148C70 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D25A34612BD9FDCD00148C70 /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -138,6 +161,8 @@
 			children = (
 				D25A345D2BD9F71000148C70 /* PokemonPage.swift */,
 				D25A345F2BD9F74500148C70 /* Pokemon.swift */,
+				D2732F062BDAB1DA002B1EC8 /* PokeItem.swift */,
+				D2732F082BDAF970002B1EC8 /* PokemonType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +180,7 @@
 		D25A344E2BD887F800148C70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D2732F0A2BDAF9FE002B1EC8 /* Color */,
 				D25A34512BD8887900148C70 /* Localizables */,
 				D25A34502BD8885500148C70 /* Assets */,
 			);
@@ -192,6 +218,40 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		D25A34612BD9FDCD00148C70 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D25A34642BD9FE2600148C70 /* MainView.swift */,
+				D25A34662BD9FE3E00148C70 /* MainViewModel.swift */,
+				D25A34682BDA043500148C70 /* MainCoordinator.swift */,
+				D25A346B2BDA0BF700148C70 /* ListItem.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D2732F022BDA1908002B1EC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2732F0A2BDAF9FE002B1EC8 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				D2732F0B2BDAFA10002B1EC8 /* Colors.xcassets */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		D2732F0D2BDB0E33002B1EC8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D2732F0E2BDB0E50002B1EC8 /* Spacing.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +268,9 @@
 			dependencies = (
 			);
 			name = "HolaFly-Challenge";
+			packageProductDependencies = (
+				D2732F032BDA1908002B1EC8 /* SDWebImageSwiftUI */,
+			);
 			productName = "HolaFly-Challenge";
 			productReference = D25A341B2BD886C900148C70 /* HolaFly-Challenge.app */;
 			productType = "com.apple.product-type.application";
@@ -280,6 +343,9 @@
 				Base,
 			);
 			mainGroup = D25A34122BD886C800148C70;
+			packageReferences = (
+				D25A346D2BDA17AE00148C70 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = D25A341C2BD886C900148C70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -297,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25A34232BD886CD00148C70 /* Assets.xcassets in Resources */,
+				D2732F0C2BDAFA10002B1EC8 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,11 +389,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25A341F2BD886C900148C70 /* HolaFly_ChallengeApp.swift in Sources */,
+				D2732F072BDAB1DA002B1EC8 /* PokeItem.swift in Sources */,
+				D25A34652BD9FE2600148C70 /* MainView.swift in Sources */,
+				D2732F092BDAF970002B1EC8 /* PokemonType.swift in Sources */,
 				D25A34532BD9D7F200148C70 /* NetworkingManager.swift in Sources */,
 				D25A345C2BD9F66500148C70 /* PokemonPageService.swift in Sources */,
 				D25A345E2BD9F71000148C70 /* PokemonPage.swift in Sources */,
 				D25A34572BD9F1B300148C70 /* RequestError.swift in Sources */,
 				D25A34602BD9F74500148C70 /* Pokemon.swift in Sources */,
+				D25A34692BDA043500148C70 /* MainCoordinator.swift in Sources */,
+				D25A346C2BDA0BF700148C70 /* ListItem.swift in Sources */,
+				D2732F0F2BDB0E50002B1EC8 /* Spacing.swift in Sources */,
+				D25A34672BD9FE3E00148C70 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,10 +563,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HolaFly-Challenge/Preview Content\"";
 				DEVELOPMENT_TEAM = 374WJWBP62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HolaFly-Challenge/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -518,10 +593,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HolaFly-Challenge/Preview Content\"";
 				DEVELOPMENT_TEAM = 374WJWBP62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HolaFly-Challenge/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -656,6 +732,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D25A346D2BDA17AE00148C70 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D2732F032BDA1908002B1EC8 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D25A346D2BDA17AE00148C70 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D25A34132BD886C800148C70 /* Project object */;
 }

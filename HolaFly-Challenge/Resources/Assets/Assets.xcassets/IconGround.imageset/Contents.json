@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "Icon_Tierra.png",
       "idiom" : "universal"
     }
   ],
