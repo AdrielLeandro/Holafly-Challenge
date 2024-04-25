@@ -10,5 +10,5 @@ import Foundation
 struct PokemonPage: Decodable {
     let count: Int
     let next: String
-    let results: [Pokemon]
+    let results: [PokeItem]
 }

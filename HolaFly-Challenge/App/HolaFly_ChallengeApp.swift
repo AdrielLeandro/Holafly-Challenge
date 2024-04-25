@@ -11,6 +11,7 @@ import SwiftUI
 struct HolaFly_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
+            MainCoordinator()
         }
     }
 }

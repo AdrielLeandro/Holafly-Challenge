@@ -6,19 +6,25 @@
 //
 
 import Foundation
+import Combine
 
 protocol PokemonPageServiceHandler {
-    func fetchPokemonPage(url: String,completion: @escaping (Result<PokemonPage, RequestError>) -> Void)
+    func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error>
+    func fetchPokemon(url: String) -> AnyPublisher<Pokemon, Error>
 }
 
 class PokemonPageService: PokemonPageServiceHandler {
-    let manager: NetworkingManager
+    private let manager: NetworkingManager
     
     init(manager: NetworkingManager) {
         self.manager = manager
     }
     
-    func fetchPokemonPage(url: String, completion: @escaping (Result<PokemonPage, RequestError>) -> Void) {
-        manager.fetchData(from: url, completion: completion)
+    func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error> {
+        return manager.fetchData(from: url)
+    }
+    
+    func fetchPokemon(url: String) -> AnyPublisher<Pokemon, Error> {
+        return manager.fetchData(from: url)
     }
 }
