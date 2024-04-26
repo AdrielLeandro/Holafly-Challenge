@@ -12,8 +12,16 @@ final class MainViewModel: ObservableObject {
     private let service = PokemonPageService(manager: NetworkingManager())
     private var pokemonPage: PokemonPage? = nil
     private let initialPage = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=150"
-    @Published var pokemonList: [Pokemon] = []
+    private var pokemonList: [Pokemon] = []
+    var searchResults: [Pokemon] {
+        if searchText.isEmpty {
+            return pokemonList
+        } else {
+            return pokemonList.filter { $0.name.localizedStandardContains(searchText) }
+        }
+    }
     @Published var isLoading = false
+    @Published var searchText = ""
     @State var showErrorAlert = false
     @State var errorMessage = ""
     private var cancellables = Set<AnyCancellable>()

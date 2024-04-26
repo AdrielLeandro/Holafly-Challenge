@@ -10,10 +10,10 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     private let columns = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-            if viewModel.isLoading && viewModel.pokemonList.isEmpty {
+            if viewModel.isLoading && viewModel.searchResults.isEmpty {
                 ProgressView()
             } else {
                 Text("Pokedex").font(.system(size: 36))
@@ -23,9 +23,10 @@ struct MainView: View {
                     .font(.system(size: 16))
                     .foregroundColor(.gray)
                     .padding(.horizontal)
+                SearchBarView(searchText: $viewModel.searchText).padding()
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Spacing.s10) {
-                        ForEach(viewModel.pokemonList) { pokemon in
+                        ForEach(viewModel.searchResults) { pokemon in
                             ListItem(imageURL: pokemon.sprite.url,
                                      name: pokemon.name,
                                      number: pokemon.id,
@@ -41,5 +42,16 @@ struct MainView: View {
         }.alert(isPresented: $viewModel.showErrorAlert) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
         }
+    }
+}
+
+struct SearchTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                .stroke(Color.mediumGray, lineWidth: 1)
+        ).padding()
     }
 }

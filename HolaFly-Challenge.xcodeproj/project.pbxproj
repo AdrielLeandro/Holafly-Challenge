@@ -28,6 +28,8 @@
 		D2732F0F2BDB0E50002B1EC8 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F0E2BDB0E50002B1EC8 /* Spacing.swift */; };
 		D2732F122BDB3270002B1EC8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F112BDB3270002B1EC8 /* DetailView.swift */; };
 		D2732F142BDB4446002B1EC8 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */; };
+		D2732F172BDC0C5D002B1EC8 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */; };
+		D2732F1A2BDC10CD002B1EC8 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		D2732F0E2BDB0E50002B1EC8 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		D2732F112BDB3270002B1EC8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				D2732F052BDA2646002B1EC8 /* Info.plist */,
 				D25A344F2BD8882F00148C70 /* App */,
 				D2732F0D2BDB0E33002B1EC8 /* Helper */,
+				D2732F152BDC0C2C002B1EC8 /* CustomView */,
 				D25A344E2BD887F800148C70 /* Resources */,
 				D25A344A2BD8878800148C70 /* Networking */,
 				D25A34492BD8877C00148C70 /* Models */,
@@ -185,6 +190,7 @@
 		D25A344E2BD887F800148C70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D2732F182BDC1090002B1EC8 /* Extension */,
 				D2732F0A2BDAF9FE002B1EC8 /* Color */,
 				D25A34512BD8887900148C70 /* Localizables */,
 				D25A34502BD8885500148C70 /* Assets */,
@@ -264,6 +270,22 @@
 				D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		D2732F152BDC0C2C002B1EC8 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		D2732F182BDC1090002B1EC8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,9 +426,11 @@
 			files = (
 				D25A341F2BD886C900148C70 /* HolaFly_ChallengeApp.swift in Sources */,
 				D2732F072BDAB1DA002B1EC8 /* PokeItem.swift in Sources */,
+				D2732F1A2BDC10CD002B1EC8 /* UIApplication+Extension.swift in Sources */,
 				D25A34652BD9FE2600148C70 /* MainView.swift in Sources */,
 				D2732F122BDB3270002B1EC8 /* DetailView.swift in Sources */,
 				D2732F092BDAF970002B1EC8 /* PokemonType.swift in Sources */,
+				D2732F172BDC0C5D002B1EC8 /* SearchBarView.swift in Sources */,
 				D25A34532BD9D7F200148C70 /* NetworkingManager.swift in Sources */,
 				D25A345C2BD9F66500148C70 /* PokemonPageService.swift in Sources */,
 				D25A345E2BD9F71000148C70 /* PokemonPage.swift in Sources */,
