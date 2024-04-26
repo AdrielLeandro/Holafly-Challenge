@@ -17,7 +17,13 @@ final class MainViewModel: ObservableObject {
     @State var showErrorAlert = false
     @State var errorMessage = ""
     private var cancellables = Set<AnyCancellable>()
-
+    private let coordinator: MainCoordinator
+    private var nextPage: Bool = false
+    
+    init(coordinator: MainCoordinator) {
+        self.coordinator = coordinator
+    }
+    
     private func fetchData(stringUrl: String) {
         isLoading = true
         service.fetchPage(url: stringUrl)
@@ -66,6 +72,12 @@ final class MainViewModel: ObservableObject {
             return
         }
         
-        fetchData(stringUrl: pokemonPage.next)
+        if nextPage {
+            fetchData(stringUrl: pokemonPage.next)
+        }
+    }
+    
+    func didTouchItem(with pokemon: Pokemon) {
+        coordinator.showDetailView(with: pokemon)
     }
 }

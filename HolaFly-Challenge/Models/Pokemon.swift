@@ -27,9 +27,36 @@ struct Pokemon: Decodable, Identifiable {
         case moves
         case types
     }
+    
+}
+
+extension Pokemon: Equatable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+extension Pokemon: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 struct Sprite: Decodable {
+    let url: String
+    let other: OtherSprite
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "front_default"
+        case other
+    }
+}
+
+struct OtherSprite: Decodable {
+    let home: HomeSprite
+}
+
+struct HomeSprite: Decodable {
     let url: String
     
     enum CodingKeys: String, CodingKey {

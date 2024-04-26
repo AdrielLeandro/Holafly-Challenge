@@ -8,12 +8,11 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-final struct ListItem: View {
+struct ListItem: View {
     let imageURL: String
     let name: String
     let number: Int
     let types: [String]
-    var onTap: (() -> Void)?
     
     var body: some View {
         VStack {
@@ -31,7 +30,6 @@ final struct ListItem: View {
                         }
                     }
                 }.padding(.leading, Spacing.s10)
-                Spacer()
                 VStack {
                     WebImage(url: URL(string: imageURL)) { image in
                         image.resizable().scaledToFill().frame(width: Spacing.s84, height: Spacing.s84)

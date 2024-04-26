@@ -12,7 +12,6 @@ protocol NetworkingManagerType: AnyObject {
     func fetchData<T: Decodable>(from url: String) -> AnyPublisher<T, Error>
 }
 
-
 class NetworkingManager: NetworkingManagerType {
     func fetchData<T: Decodable>(from url: String) -> AnyPublisher<T, Error> where T: Decodable {
         return fetchData(from: url, attemp: 1)
