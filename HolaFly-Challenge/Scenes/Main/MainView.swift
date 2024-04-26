@@ -9,12 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
-
-    let columns = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
+    private let columns = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
     
     var body: some View {
         VStack(alignment: .leading) {
-            if viewModel.isLoading {
+            if viewModel.isLoading && viewModel.pokemonList.isEmpty {
                 ProgressView()
             } else {
                 Text("Pokedex").font(.system(size: 36))
@@ -30,7 +29,9 @@ struct MainView: View {
                             ListItem(imageURL: pokemon.sprite.url,
                                      name: pokemon.name,
                                      number: pokemon.id,
-                                     types: pokemon.types.map { $0.type.name })
+                                     types: pokemon.types.map { $0.type.name }).onTapGesture {
+                                self.viewModel.didTouchItem(with: pokemon)
+                            } 
                         }
                     }.padding()
                 }
