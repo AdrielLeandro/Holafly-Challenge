@@ -30,6 +30,7 @@
 		D2732F142BDB4446002B1EC8 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */; };
 		D2732F172BDC0C5D002B1EC8 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */; };
 		D2732F1A2BDC10CD002B1EC8 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */; };
+		D2A974742BDD697400F7D473 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974732BDD697400F7D473 /* MainTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		D2A974732BDD697400F7D473 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */,
+				D2A974732BDD697400F7D473 /* MainTabBarView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				D25A34572BD9F1B300148C70 /* RequestError.swift in Sources */,
 				D25A34602BD9F74500148C70 /* Pokemon.swift in Sources */,
 				D25A34692BDA043500148C70 /* MainCoordinator.swift in Sources */,
+				D2A974742BDD697400F7D473 /* MainTabBarView.swift in Sources */,
 				D25A346C2BDA0BF700148C70 /* ListItem.swift in Sources */,
 				D2732F0F2BDB0E50002B1EC8 /* Spacing.swift in Sources */,
 				D25A34672BD9FE3E00148C70 /* MainViewModel.swift in Sources */,
