@@ -25,7 +25,7 @@ struct DetailHeaderView: View {
                     Text("Height: \(pokemon.height)").font(.system(size: 24).bold()).foregroundStyle(.white)
                     Spacer()
                     Text("Weight: \(pokemon.weight)").font(.system(size: 24).bold()).foregroundStyle(.white)
-                }.padding(.horizontal, 50).padding(.bottom, 20)
+                }.padding(.horizontal, Spacing.s50).padding(.bottom, Spacing.s20)
             }
         }
     }
