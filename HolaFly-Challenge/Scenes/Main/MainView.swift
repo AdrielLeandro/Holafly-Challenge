@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     private let columns = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
+    @State private var isAbilityFilterShowing = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,7 +24,9 @@ struct MainView: View {
                     .font(.system(size: 16))
                     .foregroundColor(.gray)
                     .padding(.horizontal)
-                SearchBarView(searchText: $viewModel.searchText).padding()
+                SearchBarView(searchText: $viewModel.searchText, didTouchFilter: {
+                    isAbilityFilterShowing = true
+                }).padding()
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Spacing.s10) {
                         ForEach(viewModel.searchResults) { pokemon in
@@ -39,19 +42,12 @@ struct MainView: View {
             }
         }.onAppear {
             viewModel.fetchNextPage()
+        }.sheet(isPresented: $isAbilityFilterShowing) {
+            FilterView(abilityFilters: $viewModel.abilitiesFilters, typeFilters: $viewModel.typeFilters, isShowing: $isAbilityFilterShowing) .onDisappear {
+                    viewModel.objectWillChange.send()
+            }
         }.alert(isPresented: $viewModel.showErrorAlert) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
         }
-    }
-}
-
-struct SearchTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-        .padding(10)
-        .background(
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .stroke(Color.mediumGray, lineWidth: 1)
-        ).padding()
     }
 }
