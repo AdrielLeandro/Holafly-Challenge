@@ -27,21 +27,24 @@ struct MainView: View {
                 SearchBarView(searchText: $viewModel.searchText, didTouchFilter: {
                     isAbilityFilterShowing = true
                 }).padding()
+                
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Spacing.s10) {
-                        ForEach(viewModel.searchResults) { pokemon in
+                        ForEach(viewModel.searchResults, id: \.id) { pokemon in
                             ListItem(imageURL: pokemon.sprite.url,
                                      name: pokemon.name,
                                      number: pokemon.id,
                                      types: pokemon.types.map { $0.type.name }).onTapGesture {
                                 self.viewModel.didTouchItem(with: pokemon)
-                            } 
+                            }.onAppear {
+                                viewModel.fetchNextPage(pokemon: pokemon)
+                            }
                         }
                     }.padding()
-                }
+                }.scrollDismissesKeyboard(.immediately)
             }
         }.onAppear {
-            viewModel.fetchNextPage()
+            viewModel.intialPage()
         }.sheet(isPresented: $isAbilityFilterShowing) {
             FilterView(abilityFilters: $viewModel.abilitiesFilters, typeFilters: $viewModel.typeFilters, isShowing: $isAbilityFilterShowing) .onDisappear {
                     viewModel.objectWillChange.send()

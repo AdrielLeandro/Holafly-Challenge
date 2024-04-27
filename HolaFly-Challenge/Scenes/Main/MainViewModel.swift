@@ -110,14 +110,20 @@ final class MainViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func fetchNextPage() {
-        guard let pokemonPage = pokemonPage else {
+    func intialPage() {
+        guard pokemonPage != nil else {
             fetchData(stringUrl: initialPage)
             return
         }
+    }
+    
+    func fetchNextPage(pokemon: Pokemon) {
+        let lastIndex = pokemonList.count - 1
         
-        if nextPage {
-            fetchData(stringUrl: pokemonPage.next)
+        if pokemonList[lastIndex] == pokemon {
+            if let page = pokemonPage {
+                fetchData(stringUrl: page.next)
+            }
         }
     }
     
