@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
+    private struct Constant {
+        static let gridMinimumValue: CGFloat = 150
+    }
+    
     @ObservedObject var viewModel: MainViewModel
-    private let columns = [GridItem(.adaptive(minimum: 150, maximum: .infinity))]
+    private let columns = [GridItem(.adaptive(minimum: Constant.gridMinimumValue, maximum: .infinity))]
     @State private var isAbilityFilterShowing = false
 
     var body: some View {

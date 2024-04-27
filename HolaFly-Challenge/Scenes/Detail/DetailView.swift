@@ -16,28 +16,28 @@ struct DetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             DetailHeaderView(pokemon: pokemon)
             
-                VStack(alignment: .center, spacing: 20) {
-
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(pokemon.name.capitalized)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .foregroundStyle(PokemonType(rawValue: pokemon.types.first?.type.name ?? "")?.color ?? .black)
-                        ForEach(pokemon.types.indices, id: \.self) { index in
-                            HStack {
-                                PokemonType(rawValue: pokemon.types[index].type.name)?.icon.resizable().frame(width: Spacing.s30, height: Spacing.s30)
-                                Text(pokemon.types[index].type.name.capitalized).font(.system(size: 20, weight: .semibold)).foregroundStyle(.black)
-                            }
+            VStack(alignment: .center, spacing: Spacing.s20) {
+                
+                VStack(alignment: .leading, spacing: Spacing.s20) {
+                    Text(pokemon.name.capitalized)
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundStyle(PokemonType(rawValue: pokemon.types.first?.type.name ?? "")?.color ?? .black)
+                    ForEach(pokemon.types.indices, id: \.self) { index in
+                        HStack {
+                            PokemonType(rawValue: pokemon.types[index].type.name)?.icon.resizable().frame(width: Spacing.s30, height: Spacing.s30)
+                            Text(pokemon.types[index].type.name.capitalized).font(.system(size: 20, weight: .semibold)).foregroundStyle(.black)
                         }
-                        
-                        Text("Abilities: \(pokemon.abilities.map { $0.ability.name }.joined(separator: ", "))")
-                        Text("Moves: \(pokemon.moves.map { $0.move.name }.joined(separator: ", "))")
-
-                    }.padding(.horizontal, 20)
+                    }
+                    
+                    Text("Abilities: \(pokemon.abilities.map { $0.ability.name }.joined(separator: ", "))")
+                    Text("Moves: \(pokemon.moves.map { $0.move.name }.joined(separator: ", "))")
+                    
+                }.padding(.horizontal, Spacing.s20)
                     .frame(maxWidth: .infinity, alignment: .center)
-                }
+            }
         }.edgesIgnoringSafeArea(.top)
-        .accentColor(.black)
+            .accentColor(.black)
     }
 }
 

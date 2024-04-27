@@ -30,7 +30,7 @@ struct SearchBarView: View {
                             }
                         , alignment: .trailing
                     )
-
+                
             }
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 15)
