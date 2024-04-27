@@ -12,18 +12,15 @@ protocol PokemonPageServiceHandler {
     func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error>
     func fetchPokemon(url: String) -> AnyPublisher<Pokemon, Error>
 }
-
-class PokemonPageService: PokemonPageServiceHandler {
-    private let manager: NetworkingManager
+final class PokemonPageService: PokemonPageServiceHandler {
+    private let manager: NetworkingManagerType
     
-    init(manager: NetworkingManager) {
+    init(manager: NetworkingManagerType) {
         self.manager = manager
     }
-    
     func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error> {
         return manager.fetchData(from: url)
     }
-    
     func fetchPokemon(url: String) -> AnyPublisher<Pokemon, Error> {
         return manager.fetchData(from: url)
     }
