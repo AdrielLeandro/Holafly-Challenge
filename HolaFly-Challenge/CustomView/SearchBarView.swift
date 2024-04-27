@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SearchBarView: View {
     @Binding var searchText: String
-  
+    var didTouchFilter: (() -> Void)?
+    
     var body: some View {
         HStack {
             HStack {
@@ -29,11 +30,17 @@ struct SearchBarView: View {
                             }
                         , alignment: .trailing
                     )
+
             }
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 15)
                 .stroke(lineWidth: 1)
                 .foregroundColor(Color.mediumGray))
+            Button {
+                didTouchFilter?()
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle").foregroundColor(.black)
+            }.padding()
         }
     }
 }

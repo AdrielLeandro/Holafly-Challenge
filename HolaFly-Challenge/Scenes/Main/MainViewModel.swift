@@ -13,13 +13,48 @@ final class MainViewModel: ObservableObject {
     private var pokemonPage: PokemonPage? = nil
     private let initialPage = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=150"
     private var pokemonList: [Pokemon] = []
+    
     var searchResults: [Pokemon] {
-        if searchText.isEmpty {
-            return pokemonList
-        } else {
-            return pokemonList.filter { $0.name.localizedStandardContains(searchText) }
+        var filteredPokemonList = pokemonList
+        
+        let selectedAbilities = abilitiesFilters.filter { $0.isSelected }.compactMap {
+            if case .ability(let ability) = $0.option {
+                return ability
+            }
+            return nil
         }
+        if !selectedAbilities.isEmpty {
+            filteredPokemonList = filteredPokemonList.filter { pokemon in
+                return selectedAbilities.allSatisfy { ability in
+                    return pokemon.abilities.contains { $0.ability.name == ability.ability.name }
+                }
+            }
+        }
+        
+        let selectedTypes = typeFilters.filter { $0.isSelected }.compactMap {
+            if case .type(let type) = $0.option {
+                return type
+            }
+            return nil
+        }
+        if !selectedTypes.isEmpty {
+            filteredPokemonList = filteredPokemonList.filter { pokemon in
+                return selectedTypes.allSatisfy { type in
+                    return pokemon.types.contains { $0.type.name == type.type.name }
+                }
+            }
+        }
+        
+        if !searchText.isEmpty {
+            filteredPokemonList = filteredPokemonList.filter { $0.name.localizedStandardContains(searchText) }
+        }
+        
+        return filteredPokemonList
     }
+    
+    var abilitiesFilters: [Filter] = []
+    var typeFilters: [Filter] = []
+    
     @Published var isLoading = false
     @Published var searchText = ""
     @State var showErrorAlert = false
@@ -65,6 +100,7 @@ final class MainViewModel: ObservableObject {
                     self.errorMessage = error.localizedDescription
                     self.showErrorAlert = true
                 case .finished:
+                    self.initFilterList()
                     self.isLoading = false
                 }
             }, receiveValue: { [weak self] pokemonList in
@@ -83,6 +119,15 @@ final class MainViewModel: ObservableObject {
         if nextPage {
             fetchData(stringUrl: pokemonPage.next)
         }
+    }
+    
+    private func initFilterList() {
+        let abilitySet = Set(pokemonList.flatMap { $0.abilities })
+        let typeSet = Set(pokemonList.flatMap { $0.types })
+        let abilityFilters = Array(abilitySet).map { Filter.init(option: .ability($0), isSelected: false)}
+        let typeFilters = Array(typeSet).map { Filter(option: .type($0), isSelected: false) }
+        self.abilitiesFilters = abilityFilters
+        self.typeFilters = typeFilters
     }
     
     func didTouchItem(with pokemon: Pokemon) {

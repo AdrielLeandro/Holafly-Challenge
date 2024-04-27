@@ -68,10 +68,30 @@ struct Ability: Decodable {
     let ability: PokeItem
 }
 
+extension Ability: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ability.name)
+    }
+    
+    static func == (lhs: Ability, rhs: Ability) -> Bool {
+        return lhs.ability.name == rhs.ability.name
+    }
+}
+
 struct Move: Decodable {
     let move: PokeItem
 }
 
 struct Type: Decodable {
     let type: PokeItem
+}
+
+extension Type: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type.name)
+    }
+    
+    static func == (lhs: Type, rhs: Type) -> Bool {
+        return lhs.type.name == rhs.type.name
+    }
 }
