@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pokemon: Decodable, Identifiable {
+struct Pokemon: Codable, Identifiable {
     let id: Int
     let name: String
     let weight: Int
@@ -42,7 +42,7 @@ extension Pokemon: Hashable {
     }
 }
 
-struct Sprite: Decodable {
+struct Sprite: Codable {
     let url: String
     let other: OtherSprite
     
@@ -52,11 +52,11 @@ struct Sprite: Decodable {
     }
 }
 
-struct OtherSprite: Decodable {
+struct OtherSprite: Codable {
     let home: HomeSprite
 }
 
-struct HomeSprite: Decodable {
+struct HomeSprite: Codable {
     let url: String
     
     enum CodingKeys: String, CodingKey {
@@ -64,7 +64,7 @@ struct HomeSprite: Decodable {
     }
 }
 
-struct Ability: Decodable {
+struct Ability: Codable {
     let ability: PokeItem
 }
 
@@ -78,11 +78,11 @@ extension Ability: Hashable {
     }
 }
 
-struct Move: Decodable {
+struct Move: Codable {
     let move: PokeItem
 }
 
-struct Type: Decodable {
+struct Type: Codable {
     let type: PokeItem
 }
 

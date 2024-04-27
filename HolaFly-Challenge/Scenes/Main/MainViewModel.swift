@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 final class MainViewModel: ObservableObject {
-    private let service = PokemonPageService(manager: NetworkingManager())
+    private let coordinator: MainCoordinator
+    private let dataSource: MainDataSourceHandler
     private var pokemonPage: PokemonPage? = nil
     private let initialPage = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=150"
     private var pokemonList: [Pokemon] = []
@@ -60,16 +61,16 @@ final class MainViewModel: ObservableObject {
     @State var showErrorAlert = false
     @State var errorMessage = ""
     private var cancellables = Set<AnyCancellable>()
-    private let coordinator: MainCoordinator
     private var nextPage: Bool = false
     
-    init(coordinator: MainCoordinator) {
+    init(coordinator: MainCoordinator, dataSource: MainDataSourceHandler) {
         self.coordinator = coordinator
+        self.dataSource = dataSource
     }
     
     private func fetchData(stringUrl: String) {
         isLoading = true
-        service.fetchPage(url: stringUrl)
+        dataSource.fetchPage(url: stringUrl)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
@@ -82,14 +83,14 @@ final class MainViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] response in
                 guard let self = self else { return }
+                self.pokemonPage = response
                 self.updatePokemonList(with: response)
             })
             .store(in: &cancellables)
     }
     
     private func updatePokemonList(with response: PokemonPage) {
-        pokemonPage = response
-        let fetchPokemonPublishers = response.results.map { service.fetchPokemon(url: $0.url) }
+        let fetchPokemonPublishers = response.results.map { dataSource.fetchDatails(from: $0) }
         Publishers.MergeMany(fetchPokemonPublishers)
             .collect()
             .receive(on: DispatchQueue.main)
