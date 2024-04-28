@@ -9,7 +9,7 @@ import Combine
 import Foundation
 @testable import HolaFly_Challenge
 
-final class MockPokemonPageServiceHandler: PokemonPageServiceHandler {
+final class MockPokemonPageServiceHandler: MainDataSourceHandler {
     var pages: [String: PokemonPage] = [:]
     var pokemons: [String: Pokemon] = [:]
     var error: Error?
@@ -36,7 +36,7 @@ final class MockPokemonPageServiceHandler: PokemonPageServiceHandler {
         }
     }
 
-    func fetchPokemon(url: String) -> AnyPublisher<Pokemon, Error> {
+    func fetchDatails(url: String) -> AnyPublisher<Pokemon, Error> {
         if let error = self.error {
             return Fail(error: error).eraseToAnyPublisher()
         } else if let pokemon = pokemons[url] {
@@ -45,7 +45,21 @@ final class MockPokemonPageServiceHandler: PokemonPageServiceHandler {
             return Fail(error: MockError.notFound).eraseToAnyPublisher()
         }
     }
-
+    
+    func fetchLocalData() -> [Pokemon] {
+        let pokemon1 = Pokemon(id: 24, name: "Pikachu", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        let pokemon2 = Pokemon(id: 24, name: "Squirtle", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        let pokemon3 = Pokemon(id: 24, name: "Charmander", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        return [pokemon1, pokemon2, pokemon3]
+    }
+    
+    func fetchLocalPage() -> PokemonPage? {
+        let pokemon1 = Pokemon(id: 24, name: "Pikachu", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        let pokemon2 = Pokemon(id: 24, name: "Squirtle", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        let pokemon3 = Pokemon(id: 24, name: "Charmander", weight: 10, height: 10, sprite: Sprite(url: "", other: OtherSprite(home: HomeSprite(url: ""))), abilities: [], moves: [], types: [])
+        let results = [pokemon1, pokemon2, pokemon3]
+        return PokemonPage(count: results.count, next: "", results: [])
+    }
     enum MockError: Error {
         case notFound
     }

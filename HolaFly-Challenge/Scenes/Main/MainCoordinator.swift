@@ -17,7 +17,8 @@ struct MainCoordinator: View {
     private var rootView: some View {
         MainView(viewModel: MainViewModel(coordinator: self,
                                           dataSource: MainDataSource(manager: NetworkingManager(),
-                                                                     fileManagerService: FileManagerService())))
+                                                                     fileManagerService: FileManagerService()), 
+                                          fileManagerService: FileManagerService()))
     }
     
     var body: some View {

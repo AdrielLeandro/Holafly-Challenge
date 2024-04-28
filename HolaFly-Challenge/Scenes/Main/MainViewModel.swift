@@ -11,9 +11,10 @@ import Combine
 final class MainViewModel: ObservableObject {
     private let coordinator: MainCoordinator
     private let dataSource: MainDataSourceHandler
+    private let fileManagerService: FileManagerServiceHandler
     private var pokemonPage: PokemonPage? = nil
     private let initialPage = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=150"
-    private var pokemonList: [Pokemon] = []
+    @Published var pokemonList: [Pokemon] = []
     
     var searchResults: [Pokemon] {
         var filteredPokemonList = pokemonList
@@ -24,6 +25,7 @@ final class MainViewModel: ObservableObject {
             }
             return nil
         }
+        
         if !selectedAbilities.isEmpty {
             filteredPokemonList = filteredPokemonList.filter { pokemon in
                 return selectedAbilities.allSatisfy { ability in
@@ -38,6 +40,7 @@ final class MainViewModel: ObservableObject {
             }
             return nil
         }
+        
         if !selectedTypes.isEmpty {
             filteredPokemonList = filteredPokemonList.filter { pokemon in
                 return selectedTypes.allSatisfy { type in
@@ -63,9 +66,10 @@ final class MainViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var nextPage: Bool = false
     
-    init(coordinator: MainCoordinator, dataSource: MainDataSourceHandler) {
+    init(coordinator: MainCoordinator, dataSource: MainDataSourceHandler, fileManagerService: FileManagerServiceHandler) {
         self.coordinator = coordinator
         self.dataSource = dataSource
+        self.fileManagerService = fileManagerService
     }
     
     private func fetchData(stringUrl: String) {
@@ -83,6 +87,7 @@ final class MainViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] response in
                 guard let self = self else { return }
+                self.fileManagerService.saveToFile(response, fileName: "page")
                 self.pokemonPage = response
                 self.updatePokemonList(with: response)
             })
@@ -90,7 +95,7 @@ final class MainViewModel: ObservableObject {
     }
     
     private func updatePokemonList(with response: PokemonPage) {
-        let fetchPokemonPublishers = response.results.map { dataSource.fetchDatails(from: $0) }
+        let fetchPokemonPublishers = response.results.map { dataSource.fetchDatails(url: $0.url) }
         Publishers.MergeMany(fetchPokemonPublishers)
             .collect()
             .receive(on: DispatchQueue.main)
@@ -104,17 +109,37 @@ final class MainViewModel: ObservableObject {
                     self.initFilterList()
                     self.isLoading = false
                 }
-            }, receiveValue: { [weak self] pokemonList in
+            }, receiveValue: { [weak self] newPokemonList in
                 guard let self = self else { return }
-                self.pokemonList += pokemonList.sorted(by: { $0.id < $1.id })
+                let uniqueCombinedList = Set(pokemonList + newPokemonList)
+                pokemonList = Array(uniqueCombinedList).sorted(by: { $0.id < $1.id })
+                fileManagerService.saveToFile(self.pokemonList, fileName: "pokemonList")
             })
             .store(in: &cancellables)
     }
     
     func intialPage() {
-        guard pokemonPage != nil else {
+        loadLocalData()
+        loadLocalPage()
+        initFilterList()
+    }
+    
+    private func loadLocalData() {
+        guard pokemonList.isEmpty else { return }
+        
+        let localList = dataSource.fetchLocalData()
+        guard !localList.isEmpty else { return }
+        
+        pokemonList = localList.sorted(by: { $0.id < $1.id })
+    }
+    
+    private func loadLocalPage() {
+        guard pokemonPage == nil else { return }
+        
+        if let localPage = fileManagerService.loadFromFile("page", as: PokemonPage.self) {
+            pokemonPage = localPage
+        } else {
             fetchData(stringUrl: initialPage)
-            return
         }
     }
     

@@ -16,11 +16,13 @@ struct DetailHeaderView: View {
             LinearGradient(colors: [PokemonType(rawValue: pokemon.types.first?.type.name ?? "")?.color ?? .black,
                                     ( PokemonType(rawValue: pokemon.types.first?.type.name ?? "")?.color ?? .black).opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing)
             VStack {
-                WebImage(url: URL(string: pokemon.sprite.other.home.url)) { image in
-                    image.resizable().scaledToFit()
-                } placeholder: {
-                    ProgressView().frame(height: 150)
-                }
+                GeometryReader { geometry in
+                    WebImage(url: URL(string: pokemon.sprite.other.home.url)) { image in
+                        image.resizable().scaledToFit()
+                    } placeholder: {
+                        ProgressView().frame(width: geometry.size.width, height: geometry.size.height)
+                    }
+                }.frame(height: 320)
                 HStack {
                     Text("Height: \(pokemon.height)").font(.system(size: 24).bold()).foregroundStyle(.white)
                     Spacer()

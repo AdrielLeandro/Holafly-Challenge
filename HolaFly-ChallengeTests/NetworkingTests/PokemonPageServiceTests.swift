@@ -11,14 +11,16 @@ import Combine
 @testable import HolaFly_Challenge
 
 final class PokemonPageServiceTests: XCTestCase {
-    var service: PokemonPageService!
+    var service: MainDataSource!
     var mockManager: MockNetworkingManager!
+    var mockFileMangerService: MockFileManagerService!
     var cancellables: Set<AnyCancellable>!
 
     override func setUp() {
         super.setUp()
         mockManager = MockNetworkingManager()
-        service = PokemonPageService(manager: mockManager)
+        mockFileMangerService = MockFileManagerService()
+        service = MainDataSource(manager: mockManager, fileManagerService: mockFileMangerService)
         cancellables = []
     }
 

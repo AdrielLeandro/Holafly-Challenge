@@ -11,7 +11,9 @@ import SwiftUI
 
 protocol MainDataSourceHandler {
     func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error>
-    func fetchDatails(from item: PokeItem) -> AnyPublisher<Pokemon, Error>
+    func fetchDatails(url: String) -> AnyPublisher<Pokemon, Error>
+    func fetchLocalData() -> [Pokemon]
+    func fetchLocalPage() -> PokemonPage?
 }
 
 class MainDataSource: MainDataSourceHandler {
@@ -24,39 +26,24 @@ class MainDataSource: MainDataSourceHandler {
     }
     
     func fetchPage(url: String) -> AnyPublisher<PokemonPage, Error> {
-        let localPublisher: AnyPublisher<PokemonPage?, Error> = Just(fileManagerService.loadFromFile("pokemonPage", as: PokemonPage.self)).setFailureType(to: Error.self).eraseToAnyPublisher()
-        
-        let remotePublisher: AnyPublisher<PokemonPage, Error> = manager.fetchData(from: url)
-            .handleEvents(receiveOutput: { [weak self] pokemonPage in
-                self?.fileManagerService.saveToFile(pokemonPage, fileName: "pokemonPage")
-            }).eraseToAnyPublisher()
-        
-        return remotePublisher
-            .catch { _ in localPublisher.compactMap { $0 } }
-            .eraseToAnyPublisher()
+        return manager.fetchData(from: url)
     }
     
-    func fetchDatails(from item: PokeItem) -> AnyPublisher<Pokemon, Error> {
-        let localPublisher: AnyPublisher<Pokemon?, Error> = Just(fileManagerService.loadFromFile(item.name, as: Pokemon.self))
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-        
-        let remotePublisher: AnyPublisher<Pokemon, Error> = manager.fetchData(from: item.url)
-            .handleEvents(receiveOutput: { [weak self] pokemon in
-//                self?.fileManagerService.saveToFile(pokemon, fileName: pokemon.name)
-            })
-            .eraseToAnyPublisher()
-        
-        return remotePublisher
-            .catch { error -> AnyPublisher<Pokemon, Error> in
-                print("Error fetching remote data:", error)
-                
-                return localPublisher.map { localDetail -> AnyPublisher<Pokemon, Error> in
-                    if localDetail = localDetail {
-                    }
-                    
-                }.eraseToAnyPublisher()
-                
-            }.eraseToAnyPublisher()
+    func fetchDatails(url: String) -> AnyPublisher<Pokemon, Error> {
+        return manager.fetchData(from: url)
+    }
+    
+    func fetchLocalData() -> [Pokemon] {
+        if let pokemonList = fileManagerService.loadFromFile("pokemonList", as: [Pokemon].self) {
+            return pokemonList
+        }
+        return []
+    }
+    
+    func fetchLocalPage() -> PokemonPage? {
+        if let page = fileManagerService.loadFromFile("page", as: PokemonPage.self) {
+            return page
+        }
+        return nil
     }
 }
