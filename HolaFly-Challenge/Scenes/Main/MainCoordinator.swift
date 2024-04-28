@@ -15,7 +15,10 @@ struct MainCoordinator: View {
     @State private var navigationPath = NavigationPath()
     
     private var rootView: some View {
-        MainView(viewModel: MainViewModel(coordinator: self))
+        MainView(viewModel: MainViewModel(coordinator: self,
+                                          dataSource: MainDataSource(manager: NetworkingManager(),
+                                                                     fileManagerService: FileManagerService()), 
+                                          fileManagerService: FileManagerService()))
     }
     
     var body: some View {

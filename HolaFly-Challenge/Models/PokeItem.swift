@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokeItem: Decodable {
+struct PokeItem: Codable {
     let name: String
     let url: String
 }

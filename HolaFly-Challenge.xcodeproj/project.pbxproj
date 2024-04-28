@@ -13,7 +13,7 @@
 		D25A343C2BD886CD00148C70 /* HolaFly_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A343B2BD886CD00148C70 /* HolaFly_ChallengeUITestsLaunchTests.swift */; };
 		D25A34532BD9D7F200148C70 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34522BD9D7F200148C70 /* NetworkingManager.swift */; };
 		D25A34572BD9F1B300148C70 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34562BD9F1B300148C70 /* RequestError.swift */; };
-		D25A345C2BD9F66500148C70 /* PokemonPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345B2BD9F66500148C70 /* PokemonPageService.swift */; };
+		D25A345C2BD9F66500148C70 /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345B2BD9F66500148C70 /* MainDataSource.swift */; };
 		D25A345E2BD9F71000148C70 /* PokemonPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345D2BD9F71000148C70 /* PokemonPage.swift */; };
 		D25A34602BD9F74500148C70 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A345F2BD9F74500148C70 /* Pokemon.swift */; };
 		D25A34652BD9FE2600148C70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25A34642BD9FE2600148C70 /* MainView.swift */; };
@@ -29,6 +29,7 @@
 		D2732F142BDB4446002B1EC8 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */; };
 		D2732F172BDC0C5D002B1EC8 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */; };
 		D2732F1A2BDC10CD002B1EC8 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */; };
+		D2732F1D2BDC8EB1002B1EC8 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2732F1C2BDC8EB1002B1EC8 /* FileManagerService.swift */; };
 		D2A974742BDD697400F7D473 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974732BDD697400F7D473 /* MainTabBarView.swift */; };
 		D2A974B32BDD77DC00F7D473 /* PokemonPageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974A92BDD77DC00F7D473 /* PokemonPageServiceTests.swift */; };
 		D2A974B42BDD77DC00F7D473 /* MockNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974AB2BDD77DC00F7D473 /* MockNetworkingManager.swift */; };
@@ -37,9 +38,11 @@
 		D2A974B72BDD77DC00F7D473 /* PokemonPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974AF2BDD77DC00F7D473 /* PokemonPageTests.swift */; };
 		D2A974B82BDD77DC00F7D473 /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974B02BDD77DC00F7D473 /* PokemonTests.swift */; };
 		D2A974B92BDD77DC00F7D473 /* PokemonTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974B12BDD77DC00F7D473 /* PokemonTypeTests.swift */; };
-		D2A974BC2BDD8BDD00F7D473 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974BB2BDD8BDD00F7D473 /* FilterView.swift */; };
 		D2A974BE2BDDA81200F7D473 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974BD2BDDA81200F7D473 /* Filter.swift */; };
 		D2A974C02BDDBC5E00F7D473 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D2A974BF2BDDBC5E00F7D473 /* Localizable.xcstrings */; };
+		D2A974C52BDDC74A00F7D473 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974C32BDDC74A00F7D473 /* FilterView.swift */; };
+		D2A974C72BDDC89F00F7D473 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A974C62BDDC89F00F7D473 /* Launch Screen.storyboard */; };
+		D2A974C92BDDDE3900F7D473 /* MockFileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A974C82BDDDE3900F7D473 /* MockFileManagerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,7 @@
 		D25A343B2BD886CD00148C70 /* HolaFly_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolaFly_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D25A34522BD9D7F200148C70 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		D25A34562BD9F1B300148C70 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		D25A345B2BD9F66500148C70 /* PokemonPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonPageService.swift; sourceTree = "<group>"; };
+		D25A345B2BD9F66500148C70 /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		D25A345D2BD9F71000148C70 /* PokemonPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonPage.swift; sourceTree = "<group>"; };
 		D25A345F2BD9F74500148C70 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		D25A34642BD9FE2600148C70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		D2732F132BDB4446002B1EC8 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		D2732F162BDC0C5D002B1EC8 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		D2732F192BDC10CD002B1EC8 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		D2732F1C2BDC8EB1002B1EC8 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
 		D2A974732BDD697400F7D473 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		D2A974A92BDD77DC00F7D473 /* PokemonPageServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonPageServiceTests.swift; sourceTree = "<group>"; };
 		D2A974AB2BDD77DC00F7D473 /* MockNetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkingManager.swift; sourceTree = "<group>"; };
@@ -93,9 +97,11 @@
 		D2A974AF2BDD77DC00F7D473 /* PokemonPageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonPageTests.swift; sourceTree = "<group>"; };
 		D2A974B02BDD77DC00F7D473 /* PokemonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		D2A974B12BDD77DC00F7D473 /* PokemonTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTypeTests.swift; sourceTree = "<group>"; };
-		D2A974BB2BDD8BDD00F7D473 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		D2A974BD2BDDA81200F7D473 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		D2A974BF2BDDBC5E00F7D473 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D2A974C32BDDC74A00F7D473 /* FilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		D2A974C62BDDC89F00F7D473 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D2A974C82BDDDE3900F7D473 /* MockFileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileManagerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 		D25A341D2BD886C900148C70 /* HolaFly-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				D2732F1B2BDC8E7D002B1EC8 /* Core */,
 				D2732F052BDA2646002B1EC8 /* Info.plist */,
 				D25A344F2BD8882F00148C70 /* App */,
 				D2732F0D2BDB0E33002B1EC8 /* Helper */,
@@ -182,7 +189,7 @@
 		D25A34482BD886E700148C70 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				D2A974BA2BDD8BC900F7D473 /* Filter */,
+				D2A974C42BDDC74A00F7D473 /* Filter */,
 				D2732F102BDB325E002B1EC8 /* Detail */,
 				D25A34612BD9FDCD00148C70 /* Main */,
 			);
@@ -204,7 +211,7 @@
 		D25A344A2BD8878800148C70 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				D25A345A2BD9F2A500148C70 /* Services */,
+				D25A345A2BD9F2A500148C70 /* DataSource */,
 				D25A34522BD9D7F200148C70 /* NetworkingManager.swift */,
 				D25A34562BD9F1B300148C70 /* RequestError.swift */,
 			);
@@ -226,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				D25A341E2BD886C900148C70 /* HolaFly_ChallengeApp.swift */,
+				D2A974C62BDDC89F00F7D473 /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -246,12 +254,12 @@
 			path = Localizables;
 			sourceTree = "<group>";
 		};
-		D25A345A2BD9F2A500148C70 /* Services */ = {
+		D25A345A2BD9F2A500148C70 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				D25A345B2BD9F66500148C70 /* PokemonPageService.swift */,
+				D25A345B2BD9F66500148C70 /* MainDataSource.swift */,
 			);
-			path = Services;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		D25A34612BD9FDCD00148C70 /* Main */ = {
@@ -314,6 +322,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		D2732F1B2BDC8E7D002B1EC8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D2732F1C2BDC8EB1002B1EC8 /* FileManagerService.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		D2A974AA2BDD77DC00F7D473 /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +343,7 @@
 			children = (
 				D2A974AB2BDD77DC00F7D473 /* MockNetworkingManager.swift */,
 				D2A974AC2BDD77DC00F7D473 /* MockPokemonPageServiceHandler.swift */,
+				D2A974C82BDDDE3900F7D473 /* MockFileManagerService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -342,10 +359,10 @@
 			path = ModelTests;
 			sourceTree = "<group>";
 		};
-		D2A974BA2BDD8BC900F7D473 /* Filter */ = {
+		D2A974C42BDDC74A00F7D473 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				D2A974BB2BDD8BDD00F7D473 /* FilterView.swift */,
+				D2A974C32BDDC74A00F7D473 /* FilterView.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -463,6 +480,7 @@
 			files = (
 				D25A34232BD886CD00148C70 /* Assets.xcassets in Resources */,
 				D2732F0C2BDAFA10002B1EC8 /* Colors.xcassets in Resources */,
+				D2A974C72BDDC89F00F7D473 /* Launch Screen.storyboard in Resources */,
 				D2A974C02BDDBC5E00F7D473 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A974C52BDDC74A00F7D473 /* FilterView.swift in Sources */,
 				D25A341F2BD886C900148C70 /* HolaFly_ChallengeApp.swift in Sources */,
 				D2A974BE2BDDA81200F7D473 /* Filter.swift in Sources */,
 				D2732F072BDAB1DA002B1EC8 /* PokeItem.swift in Sources */,
@@ -497,7 +516,7 @@
 				D2732F092BDAF970002B1EC8 /* PokemonType.swift in Sources */,
 				D2732F172BDC0C5D002B1EC8 /* SearchBarView.swift in Sources */,
 				D25A34532BD9D7F200148C70 /* NetworkingManager.swift in Sources */,
-				D25A345C2BD9F66500148C70 /* PokemonPageService.swift in Sources */,
+				D25A345C2BD9F66500148C70 /* MainDataSource.swift in Sources */,
 				D25A345E2BD9F71000148C70 /* PokemonPage.swift in Sources */,
 				D25A34572BD9F1B300148C70 /* RequestError.swift in Sources */,
 				D25A34602BD9F74500148C70 /* Pokemon.swift in Sources */,
@@ -505,7 +524,7 @@
 				D2A974742BDD697400F7D473 /* MainTabBarView.swift in Sources */,
 				D25A346C2BDA0BF700148C70 /* ListItem.swift in Sources */,
 				D2732F0F2BDB0E50002B1EC8 /* Spacing.swift in Sources */,
-				D2A974BC2BDD8BDD00F7D473 /* FilterView.swift in Sources */,
+				D2732F1D2BDC8EB1002B1EC8 /* FileManagerService.swift in Sources */,
 				D25A34672BD9FE3E00148C70 /* MainViewModel.swift in Sources */,
 				D2732F142BDB4446002B1EC8 /* DetailHeaderView.swift in Sources */,
 			);
@@ -520,6 +539,7 @@
 				D2A974B52BDD77DC00F7D473 /* MockPokemonPageServiceHandler.swift in Sources */,
 				D2A974B92BDD77DC00F7D473 /* PokemonTypeTests.swift in Sources */,
 				D2A974B42BDD77DC00F7D473 /* MockNetworkingManager.swift in Sources */,
+				D2A974C92BDDDE3900F7D473 /* MockFileManagerService.swift in Sources */,
 				D2A974B62BDD77DC00F7D473 /* PokeItemTests.swift in Sources */,
 				D2A974B82BDD77DC00F7D473 /* PokemonTests.swift in Sources */,
 			);
@@ -684,6 +704,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,6 +735,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

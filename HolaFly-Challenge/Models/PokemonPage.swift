@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PokemonPage: Decodable {
+struct PokemonPage: Codable {
     let count: Int
     let next: String
     let results: [PokeItem]
