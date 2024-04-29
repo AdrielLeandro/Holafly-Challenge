@@ -18,7 +18,7 @@ struct MainView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if viewModel.isLoading {
+            if viewModel.isLoading && viewModel.searchResults.isEmpty {
                 Spacer()
                 ProgressView()
                 Spacer()
