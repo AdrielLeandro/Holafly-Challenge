@@ -18,8 +18,14 @@ struct MainView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if viewModel.isLoading && viewModel.searchResults.isEmpty {
+            if viewModel.isLoading {
+                Spacer()
                 ProgressView()
+                Spacer()
+            } else if viewModel.searchResults.isEmpty {
+                EmptyView {
+                    viewModel.handlerAlert()
+                }
             } else {
                 Text("Pokedex").font(.system(size: 36))
                     .bold()
@@ -48,13 +54,31 @@ struct MainView: View {
                 }.scrollDismissesKeyboard(.immediately)
             }
         }.onAppear {
-            viewModel.intialPage()
+            viewModel.setupInitialPage()
         }.sheet(isPresented: $isAbilityFilterShowing) {
             FilterView(abilityFilters: $viewModel.abilitiesFilters, typeFilters: $viewModel.typeFilters, isShowing: $isAbilityFilterShowing) .onDisappear {
                     viewModel.objectWillChange.send()
             }
         }.alert(isPresented: $viewModel.showErrorAlert) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+        }
+    }
+}
+
+struct EmptyView: View {
+    var onTap: (() -> Void)?
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Spacer()
+            Image(systemName: "exclamationmark.triangle").resizable().frame(width: 100, height: 100).padding()
+            Text("An unexpected error has occurred").padding()
+            Button {
+                onTap?()
+            } label: {
+                Text("Retry")
+            }
+            Spacer()
         }
     }
 }

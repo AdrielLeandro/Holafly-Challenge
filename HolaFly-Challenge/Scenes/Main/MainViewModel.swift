@@ -61,8 +61,8 @@ final class MainViewModel: ObservableObject {
     
     @Published var isLoading = false
     @Published var searchText = ""
-    @State var showErrorAlert = false
-    @State var errorMessage = ""
+    @Published var showErrorAlert = false
+    var errorMessage = ""
     private var cancellables = Set<AnyCancellable>()
     private var nextPage: Bool = false
     
@@ -75,6 +75,7 @@ final class MainViewModel: ObservableObject {
     private func fetchData(stringUrl: String) {
         isLoading = true
         dataSource.fetchPage(url: stringUrl)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
@@ -118,7 +119,7 @@ final class MainViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func intialPage() {
+    func setupInitialPage() {
         loadLocalData()
         loadLocalPage()
         initFilterList()
@@ -160,6 +161,13 @@ final class MainViewModel: ObservableObject {
         let typeFilters = Array(typeSet).map { Filter(option: .type($0), isSelected: false) }
         self.abilitiesFilters = abilityFilters
         self.typeFilters = typeFilters
+    }
+    
+    func handlerAlert() {
+        guard !pokemonList.isEmpty else {
+            setupInitialPage()
+            return
+        }
     }
     
     func didTouchItem(with pokemon: Pokemon) {
