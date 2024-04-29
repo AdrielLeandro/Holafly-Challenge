@@ -41,6 +41,16 @@
         }
       }
     },
+    "An unexpected error has occurred" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ocurrido un error inesperado"
+          }
+        }
+      }
+    },
     "Clear" : {
       "localizations" : {
         "es" : {
@@ -163,6 +173,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prueba"
+          }
+        }
+      }
+    },
+    "Retry" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reintentar"
           }
         }
       }
